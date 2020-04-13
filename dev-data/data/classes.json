@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Class 1 - Welcome to English Learning",
+        "difficulty": "intermediate",
+        "lecture": "Class 1 Compressed.mp4",
+        "ppt": "Welcome to English Class.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 2 - Inventions and Discoveries",
+        "difficulty": "intermediate",
+        "lecture": "Class 2 Compressed.mp4",
+        "ppt": "Inventions and Discoveries.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 3 - English Idioms",
+        "difficulty": "intermediate",
+        "lecture": "Class 3 Compressed.mp4",
+        "ppt": "English Idioms.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 4 - Slang",
+        "difficulty": "intermediate",
+        "lecture": "Class 4 Compressed.mp4",
+        "ppt": "Slang.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 5 - Dialogues and Listening",
+        "difficulty": "intermediate",
+        "lecture": "Class 5 Compressed.mp4",
+        "ppt": "Dialogues and Listening.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 6 - Stories and Meaning",
+        "difficulty": "advanced",
+        "lecture": "Class 6 Compressed.mp4",
+        "ppt": "Welcome to English Class.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    },
+    {
+        "name": "Class 7 - Beauty",
+        "difficulty": "advanced",
+        "lecture": "Class 7 Compressed.mp4",
+        "ppt": "Beauty.doc",
+        "course": "5e9479aad0f43f2a3fb6d1a8"
+    }
+]

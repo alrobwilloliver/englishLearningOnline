@@ -10,11 +10,6 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
-// app.get('/', (req, res, next) => {
-//     console.log('Hello!')
-// })
-
-// app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
