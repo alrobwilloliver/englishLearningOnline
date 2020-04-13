@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -32,8 +33,26 @@ const userSchema = new mongoose.Schema({
             },
             message: 'Passwords are not the same'
         }
-    }
+    },
+    passwordChangedAt: Date
 });
+
+userSchema.pre('save', async function (next) {
+    // if password is not changed don't hash password
+    if (!this.isModified('password')) next();
+
+    // hash password with bcrypt (12 is a safe value -> higher is safer, but more performance heavy)
+    this.password = await bcrypt.hash(this.password, 12);
+
+    this.passwordConfirm = undefined;
+
+    next();
+
+})
+
+userSchema.methods.correctPassword = async function (candidatePassword, actualPassword) {
+    return await bcrypt.compare(candidatePassword, actualPassword)
+}
 
 const User = mongoose.model('User', userSchema);
 

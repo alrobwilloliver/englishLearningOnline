@@ -1,5 +1,10 @@
+const Course = require('./../models/courseModel');
+const catchAsync = require('./../utils/catchAsync');
 
-
-exports.getAllCourses = (req, res, next) => {
-    res.status(200).json({ message: 'Hello from the server!' })
-}
+exports.getAllCourses = catchAsync(async (req, res, next) => {
+    const courses = await Course.find();
+    res.status(200).json({
+        status: 'success',
+        data: courses
+    })
+})
