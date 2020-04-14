@@ -1,6 +1,7 @@
 const Course = require('./../models/courseModel');
 const catchAsync = require('./../utils/catchAsync');
 const Class = require('./../models/classModel');
+const AppError = require('./../utils/appError');
 
 exports.getAllCourses = catchAsync(async (req, res, next) => {
     const courses = await Course.find();
@@ -29,5 +30,20 @@ exports.getAllByCourse = catchAsync(async (req, res, next) => {
         status: 'success',
         results: classes.length,
         data: classes
+    })
+})
+
+exports.getOneByCourse = catchAsync(async (req, res, next) => {
+
+    let filter = {};
+    if (!req.params.courseId || !req.params.classId) next(new AppError('This record doesn\'t exist!', 500));
+
+    filter = { $and: [{ _id: req.params.classId }, { course: req.params.courseId }] }
+
+    const lesson = await Class.find(filter);
+
+    res.status(200).json({
+        status: 'success',
+        data: lesson
     })
 })
