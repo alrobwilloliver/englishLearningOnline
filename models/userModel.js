@@ -7,7 +7,9 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [true, 'You must submit a username!'],
-        unique: [true, 'This username has been taken. Please choose another.']
+        unique: [true, 'This username has been taken. Please choose another.'],
+        max: 15,
+        min: 3
     },
     email: {
         type: String,
