@@ -40,6 +40,13 @@ const userSchema = new mongoose.Schema({
     passwordResetExpires: Date
 });
 
+userSchema.pre('save', function (next) {
+    if (!this.isModified('password') || this.isNew) return next()
+
+    this.passwordChangedAt = Data.now() - 1000;
+    next();
+})
+
 userSchema.pre('save', async function (next) {
     // if password is not changed don't hash password
     if (!this.isModified('password')) next();
