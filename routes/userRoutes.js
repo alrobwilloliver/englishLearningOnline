@@ -11,6 +11,8 @@ router.route('/login').post(authController.login);
 router.route('/forgetPassword').post(authController.forgetPassword);
 router.route('/resetPassword/:token').patch(authController.resetPassword);
 
+router.route('/changePassword').patch(authController.protect, authController.updatePassword);
+
 router.route('/').get(userController.getAllUsers)
 
 module.exports = router;
