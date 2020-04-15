@@ -161,3 +161,15 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 
     createAndSendToken(user, 200, res);
 })
+
+exports.restrictTo = (...roles) => {
+
+    return (req, res, next) => {
+        if (!roles.includes(req.user.role)) {
+            return next(new AppError('You don\'t have permission to complete this action', 400));
+        }
+
+        next();
+    }
+
+}

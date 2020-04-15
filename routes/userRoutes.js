@@ -13,7 +13,7 @@ router.route('/resetPassword/:token').patch(authController.resetPassword);
 
 router.route('/changePassword').patch(authController.protect, authController.updatePassword);
 
-router.route('/').get(userController.getAllUsers)
+router.route('/').get(authController.protect, authController.restrictTo('admin'), userController.getAllUsers)
 
 router.route('/me').get(authController.protect, userController.getMe)
 
