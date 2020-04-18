@@ -1,0 +1,40 @@
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+    <section class="section-fillin">
+        <div class="row">
+            <div class="fillin">
+                <div class="fillin__form">
+                    <div class="u-margin-bottom-medium">
+                        <h2 class="heading-secondary">
+                            Login to access classes
+                        </h2>
+                    </div>
+                    <form action="#" class="form">
+                        <div class="form__group">
+                            <input id="name" type="text" class="form__input" placeholder="Full Name" required>
+                            <label for="name" class="form__label">Full Name</label>
+                        </div>
+
+                        <div class="form__group">
+                            <input id="email" type="email" class="form__input" placeholder="Email" required>
+                            <label for="email" class="form__label">Email</label>
+                        </div>
+
+                        <div class="form__group">
+                            <button class="btn btn--green">Next Step &rarr;</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
