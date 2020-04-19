@@ -26,7 +26,23 @@ app.use(express.json());
 // Routes
 
 app.get('/', (req, res, next) => {
-    res.render('pages/test')
+    res.render('pages/index')
+})
+
+app.get('/login', (req, res, next) => {
+    res.render('pages/login')
+})
+
+app.get('/signup', (req, res, next) => {
+    res.render('pages/signup')
+})
+
+app.get('/courses', (req, res, next) => {
+    res.render('pages/courses')
+})
+
+app.get('/classes', (req, res, next) => {
+    res.render('pages/classes')
 })
 
 app.use('/api/v1/courses', courseRouter);
