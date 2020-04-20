@@ -94,11 +94,12 @@ body {
 .card-paragraph-small {
     font-size: $small-font-size;
 
-    &:after {
-        border-bottom: 3px solid black;
-    }
-
     &:not(:last-child) {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
+}
+
+.card-paragraph-description {
+    border-top: 1px solid $color-grey-dark;
+    font-size: $small-font-size;
 }

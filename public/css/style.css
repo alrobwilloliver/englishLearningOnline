@@ -157,10 +157,12 @@ body {
 
 .card-paragraph-small {
   font-size: 1.2rem; }
-  .card-paragraph-small:after {
-    border-bottom: 3px solid black; }
   .card-paragraph-small:not(:last-child) {
-    margin-bottom: 3rem; }
+    margin-bottom: 2rem; }
+
+.card-paragraph-description {
+  border-top: 1px solid #777;
+  font-size: 1.2rem; }
 
 .u-center-text {
   text-align: center !important; }
@@ -410,6 +412,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2rem; }
+  @media only screen and (max-width: 56.25em) {
+    .card-grid {
+      grid-template-columns: 1fr 1fr; } }
+  @media only screen and (max-width: 37.5em) {
+    .card-grid {
+      grid-template-columns: 1fr;
+      grid-column: 10rem;
+      align-items: center;
+      justify-content: center; } }
 
 .class__card {
   background-image: url(../img/welcome.jpg);
@@ -418,6 +429,10 @@ body {
   position: relative;
   border-radius: 4px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  @media only screen and (max-width: 37.5em) {
+    .class__card {
+      width: 80%;
+      left: 10%; } }
   .class__card-details {
     position: absolute;
     bottom: 0;
@@ -427,14 +442,18 @@ body {
     padding: 1.1rem 3rem;
     border-radius: 4px;
     overflow: hidden;
-    transition: height ease-in 1s; }
+    transition: height ease-in 0.5s; }
     .class__card-details-text {
       margin-top: 1.2rem;
       position: absolute;
       right: 1rem; }
   .class__card:hover > .class__card-details {
-    transition: height ease-in 1s;
+    transition: height ease-in 0.5s;
     height: 25rem; }
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      .class__card:hover > .class__card-details {
+        transition: none;
+        height: 7rem; } }
 
 .card {
   perspective: 150rem;
