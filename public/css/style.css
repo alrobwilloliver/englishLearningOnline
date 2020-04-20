@@ -410,8 +410,8 @@ body {
 
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 2rem; }
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 6rem; }
   @media only screen and (max-width: 56.25em) {
     .card-grid {
       grid-template-columns: 1fr 1fr; } }
@@ -859,7 +859,7 @@ body {
         margin-bottom: 6rem; } }
   @media only screen and (max-width: 56.25em) {
     .row {
-      max-width: 50rem;
+      max-width: 55rem;
       padding: 0 3rem; } }
   .row:after {
     content: "";
