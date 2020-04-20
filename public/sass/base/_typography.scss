@@ -86,3 +86,19 @@ body {
         margin-bottom: 3rem;
     }
 }
+
+.card-paragraph {
+    font-size: $default-font-size;
+}
+
+.card-paragraph-small {
+    font-size: $small-font-size;
+
+    &:after {
+        border-bottom: 3px solid black;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
