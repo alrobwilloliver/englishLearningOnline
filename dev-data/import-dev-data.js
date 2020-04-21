@@ -5,7 +5,7 @@ const Class = require('../models/classModel');
 const Course = require('../models/courseModel');
 const User = require('../models/userModel');
 
-dotenv.config({ path: './../config.env' })
+dotenv.config({ path: './config.env' })
 // console.log(process.env);
 // console.log(__dirname);
 

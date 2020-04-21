@@ -36,3 +36,11 @@ body {
     background-color: $color-primary;
     color: $color-white;
 }
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: inherit;
+}

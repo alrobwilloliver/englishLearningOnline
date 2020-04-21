@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const courseRouter = require('./routes/courseRoutes');
 const classRouter = require('./routes/classRoutes');
 const userRouter = require('./routes/userRoutes');
+const viewRouter = require('./routes/viewRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const path = require('path');
@@ -25,26 +26,7 @@ app.use(express.json());
 
 // Routes
 
-app.get('/', (req, res, next) => {
-    res.render('pages/index')
-})
-
-app.get('/login', (req, res, next) => {
-    res.render('pages/login')
-})
-
-app.get('/signup', (req, res, next) => {
-    res.render('pages/signup')
-})
-
-app.get('/courses', (req, res, next) => {
-    res.render('pages/courses')
-})
-
-app.get('/classes', (req, res, next) => {
-    res.render('pages/classes')
-})
-
+app.use('/', viewRouter);
 app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/classes', classRouter);
 app.use('/api/v1/users', userRouter);

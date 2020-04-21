@@ -27,7 +27,8 @@ const classSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Course',
         required: [true, 'This class must belong to a course!']
-    }
+    },
+    duration: String
 }, {
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
