@@ -421,7 +421,7 @@ body {
   grid-gap: 6rem; }
   @media only screen and (max-width: 56.25em) {
     .card-grid {
-      grid-template-columns: 1fr 1fr; } }
+      grid-template-columns: 1fr; } }
   @media only screen and (max-width: 37.5em) {
     .card-grid {
       grid-template-columns: 1fr;
@@ -432,10 +432,15 @@ body {
 .class__card {
   background-image: url(../img/welcome.jpg);
   background-size: contain;
+  background-repeat: no-repeat;
   height: 25rem;
   position: relative;
   border-radius: 4px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+  @media only screen and (max-width: 56.25em) {
+    .class__card {
+      width: 80%;
+      left: 10%; } }
   @media only screen and (max-width: 37.5em) {
     .class__card {
       width: 80%;
@@ -866,7 +871,7 @@ body {
         margin-bottom: 6rem; } }
   @media only screen and (max-width: 56.25em) {
     .row {
-      max-width: 55rem;
+      max-width: 50rem;
       padding: 0 3rem; } }
   .row:after {
     content: "";

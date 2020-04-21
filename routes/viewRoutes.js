@@ -25,10 +25,15 @@ router.get('/classes/:courseId', catchAsync(async (req, res, next) => {
 
     const classes = await Class.find(filter)
 
+    const links = classes.map(el => {
+        return `/class/${el._id}`
+    })
+
     res.render('pages/classes', {
         status: 'success',
         results: classes.length,
-        data: classes
+        data: classes,
+        links
     })
 }))
 

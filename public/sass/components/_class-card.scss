@@ -4,7 +4,7 @@
     grid-gap: $gutter-vertical-small;
 
     @include respond(tab-port) {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     @include respond(phone) {
@@ -20,11 +20,16 @@
 .class__card {
     background-image: url(../img/welcome.jpg);
     background-size: contain;
-    // background-repeat: no-repeat;
+    background-repeat: no-repeat;
     height: 25rem;
     position: relative;
     border-radius: 4px;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    @include respond(tab-port) {
+        width: 80%;
+        left: 10%;
+    }
 
     @include respond(phone) {
         width: 80%;
