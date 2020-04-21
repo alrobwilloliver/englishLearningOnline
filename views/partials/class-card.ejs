@@ -5,7 +5,7 @@
         <% for(var i = 0; i < data.length; i++) { %>
 
 
-        <a style='display: block' href="/class <%= data[i]._id %>">
+        <a style='display: block' href="/courses/<%= data[i].course %>/classes/<%= data[i]._id %>">
             <div class='class__card'>
                 <div class='class__card-details'>
                     <p class="card-paragraph"><%= data[i].name %></p>

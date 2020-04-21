@@ -1,0 +1,23 @@
+<html lang="en">
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+
+<body>
+    <%- include('../partials/nav') %>
+
+    <div class="row">
+        <div class="u-margin-bottom-medium"></div>
+        <h2 class="heading-secondary "> <%= data[0].name %> </h2>
+
+        <video width="320" height="240" controls>
+            <source src="../../../../img/video.mp4" type="video/mp4">
+
+        </video>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+
+</html>
