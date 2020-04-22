@@ -63,7 +63,7 @@
     }
 
     &--green {
-        color: $color-white;
+        color: $color-white !important;
         background-color: $color-primary;
 
         &::after {
