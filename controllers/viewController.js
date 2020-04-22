@@ -35,3 +35,9 @@ exports.getAllOfCourse = catchAsync(async (req, res, next) => {
         data: classes,
     })
 })
+
+exports.getLoginForm = (req, res) => {
+    res.status(200).render('pages/login', {
+        title: 'Login'
+    })
+}

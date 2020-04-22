@@ -4,9 +4,17 @@
     <!-- <a href="#" class="nav__el">My Courses</a> -->
     <div class='nav__els'>
         <a href="#" class="nav__el">All Courses</a>
-
-        <button href='/login' class="nav__el">Log in</button>
+        <% if (locals.user) { %>
+        <button href='/login' class="nav__el">My Courses</button>
+        <button href='#' class="nav__el nav__el--logout">Log Out</button>
+        <button href='/me' class="nav__el">
+            <image src='../../../../img/user/Alan5.jpg' class="nav__user-img" alt='User photo' />
+        </button>
+        <% } else { %>
+        <button href='/login' class="nav__el">Log In</button>
         <button href='/signup' class="nav__el nav__el--cta">Sign up</button>
+        <% } %>
+
     </div>
     <div class='u-margin-bottom-big'>
 

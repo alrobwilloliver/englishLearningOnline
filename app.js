@@ -7,6 +7,7 @@ const viewRouter = require('./routes/viewRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const path = require('path');
+const cookieParser = require('cookie-parser')
 
 
 const app = express();
@@ -23,6 +24,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json());
+app.use(cookieParser());
+
+app.use((req, res, next) => {
+    console.log(req.cookies);
+    next();
+})
 
 // Routes
 

@@ -3,14 +3,17 @@
     <div>
         <img src="img/logo-white.png" alt="logo" class="header__logo">
     </div>
-    <div>
-        <!-- <a href="#" class="nav__el">My Courses</a> -->
+    <div style='display: flex'>
         <a href="#" class="nav__el-home">All Courses</a>
-        <!-- <a href="#" class="nav__el">
-            <img src="img/user.jpg" alt="User photo" class="nav__user-img" />
-            <span>Jonas</span>
-        </a> -->
-        <button class="nav__el-home">Log in</button>
+        <% if (locals.user) { %>
+        <button href='#' class="nav__el-home">My Courses</button>
+        <button href='#' class="nav__el-home nav__el--logout">Log Out</button>
+        <button href='#' class="nav__el-home ">
+            <image src='img/user/Alan5.jpg' class="nav__user-img" alt='User photo' />
+        </button>
+        <% } else { %>
+        <button href='/login' class="nav__el-home">Log In</button>
         <button href='/signup' class="nav__el-home nav__el--cta-home">Sign up</button>
+        <% } %>
     </div>
 </nav>

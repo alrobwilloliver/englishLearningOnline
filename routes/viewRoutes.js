@@ -1,15 +1,15 @@
 const express = require('express');
-const Class = require('../models/classModel');
 const catchAsync = require('../utils/catchAsync');
 const viewController = require('../controllers/viewController');
+const authController = require('../controllers/authenticationController');
 
 const router = express.Router();
 
+router.use(authController.isLoggedIn);
+
 router.get('/', viewController.getHome)
 
-// router.get('/login', (req, res, next) => {
-//     res.render('pages/login')
-// })
+router.get('/login', viewController.getLoginForm)
 
 // router.get('/signup', (req, res, next) => {
 //     res.render('pages/signup')
@@ -17,10 +17,6 @@ router.get('/', viewController.getHome)
 
 router.get('/courses/:courseId', viewController.getAllOfCourse)
 
-router.get('/classes', (req, res, next) => {
-    res.render('pages/classes')
-})
-
-router.get('/courses/:courseId/classes/:classId', viewController.getOneOfCourse)
+router.get('/courses/:courseId/classes/:classId', authController.protect, viewController.getOneOfCourse)
 
 module.exports = router;
