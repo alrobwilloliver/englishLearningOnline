@@ -1,5 +1,4 @@
 const express = require('express');
-const catchAsync = require('../utils/catchAsync');
 const viewController = require('../controllers/viewController');
 const authController = require('../controllers/authenticationController');
 
@@ -11,9 +10,9 @@ router.get('/', viewController.getHome)
 
 router.get('/login', viewController.getLoginForm)
 
-// router.get('/signup', (req, res, next) => {
-//     res.render('pages/signup')
-// })
+router.get('/signup', (req, res, next) => {
+    res.render('pages/signup')
+})
 
 router.get('/courses/:courseId', viewController.getAllOfCourse)
 
