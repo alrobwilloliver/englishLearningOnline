@@ -148,6 +148,10 @@ body {
   .heading-secondary:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .heading-secondary--error {
+    background-image: -webkit-gradient(linear, left top, right top, from(#ff7730), to(#eb4d4b));
+    background-image: linear-gradient(to right, #ff7730, #eb4d4b);
+    font-size: 3.5rem; }
 
 .heading-tertiary {
   font-size: 1.6rem;
@@ -265,6 +269,42 @@ body {
     @media only screen and (max-width: 56.25em) {
       .fillin__form {
         width: 100%; } }
+
+.main {
+  background-color: #f7f7f7;
+  padding: 20rem 15rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative; }
+
+.error {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 80rem;
+  text-align: center; }
+  .error__title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 1rem; }
+  .error__emoji {
+    font-size: 3.75rem;
+    margin-left: 1rem; }
+  .error__msg {
+    font-size: 2.5rem;
+    font-weight: 700;
+    max-width: 50rem;
+    margin: 0 auto; }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
