@@ -14,6 +14,8 @@ router.get('/signup', (req, res, next) => {
     res.render('pages/signup')
 })
 
+router.get('/me', authController.protect, viewController.myAccount)
+
 router.get('/courses/:courseId', viewController.getAllOfCourse)
 
 router.get('/courses/:courseId/classes/:classId', authController.protect, viewController.getOneOfCourse)

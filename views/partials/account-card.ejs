@@ -1,0 +1,82 @@
+<main class="main">
+    <div class="user-view">
+        <nav class="user-view__menu">
+            <ul class="side-nav">
+                <li class="side-nav--active">
+                    <a href="#">
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        My Courses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        My Reviews
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        Billing
+                    </a>
+                </li>
+                <div class="admin-nav">
+                    <h5 class="admin-nav__heading">Admin</h5>
+                    <ul class="side-nav">
+                        <li>
+                            <a href="#">
+                                Manage Classes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Manage Users
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+        </nav>
+        <div class="user-view__content">
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary u-margin-bottom-medium">
+                    Your Account Settings
+                </h2>
+                <form action="#" class="form form-user-data">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Username</label>
+                        <input type="text" class="form__input" id="name" value=" <%= user.username %>  " required>
+                    </div>
+                    <div class="form__group">
+                        <label for="email" class="form__label">Email Address</label>
+                        <input id="email" type="email" class="form__input" value=" <%= user.email %> " required>
+                    </div>
+                </form>
+            </div>
+            <div class="user-view__form-container">
+                <h2 class="heading-secondary u-margin-bottom-medium">
+                    Password Change
+                </h2>
+                <form class="form form-user-settings" action="#">
+                    <div class="form__group">
+                        <label for="password-current" class="form__label">Current Password</label>
+                        <input type="password" id="password-current" class="form__input" minlength='8' required>
+                    </div>
+                    <div class="form__group">
+                        <label for="password" class="form__label">New Password</label>
+                        <input type="password" id="password" class="form__input" required minlength="8">
+                    </div>
+                    <div class="form__group">
+                        <label for="password-confirm" class="form__label">Confirm Password</label>
+                        <input type="password" id="password-confirm" class="form__input" required minlength="8">
+                    </div>
+                    <div class="form__group right">
+                        <button class="btn btn--small btn--green">Save password</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
