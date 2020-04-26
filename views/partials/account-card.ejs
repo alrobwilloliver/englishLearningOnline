@@ -22,6 +22,8 @@
                         Billing
                     </a>
                 </li>
+
+                <% if (user.role === 'admin') { %>
                 <div class="admin-nav">
                     <h5 class="admin-nav__heading">Admin</h5>
                     <ul class="side-nav">
@@ -37,6 +39,7 @@
                         </li>
                     </ul>
                 </div>
+                <% } %>
             </ul>
         </nav>
         <div class="user-view__content">
