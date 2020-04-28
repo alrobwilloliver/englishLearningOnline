@@ -47,14 +47,16 @@
                 <h2 class="heading-secondary u-margin-bottom-medium">
                     Your Account Settings
                 </h2>
-                <form action="#" class="form form-user-data">
+                <form action="/submit-user-data" method="POST" class="form form-user-data">
                     <div class="form__group">
                         <label for="name" class="form__label">Username</label>
-                        <input type="text" class="form__input" id="name" value=" <%= user.username %>  " required>
+                        <input type="text" name="name" class="form__input" id="name" value=" <%= user.username %>  "
+                            required>
                     </div>
                     <div class="form__group">
                         <label for="email" class="form__label">Email Address</label>
-                        <input id="email" type="email" class="form__input" value=" <%= user.email %> " required>
+                        <input id="email" name="email" type="email" class="form__input" value=" <%= user.email %> "
+                            required>
                     </div>
                     <div class="form__group right u-margin-bottom-medium">
                         <button class="btn btn--small btn--green">Save settings</button>

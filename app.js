@@ -25,6 +25,10 @@ if (process.env.NODE_ENV === 'development') {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.urlencoded({
+    extended: true,
+    limit: '10kb'
+}))
 
 app.use((req, res, next) => {
     // console.log(req.cookies);

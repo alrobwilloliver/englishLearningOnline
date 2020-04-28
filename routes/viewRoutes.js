@@ -20,4 +20,6 @@ router.get('/courses/:courseId', viewController.getAllOfCourse)
 
 router.get('/courses/:courseId/classes/:classId', authController.protect, viewController.getOneOfCourse)
 
+router.post('/submit-user-data', authController.protect, viewController.updateUserData)
+
 module.exports = router;

@@ -1,5 +1,6 @@
 const AppError = require('../utils/appError');
 const Class = require('../models/classModel');
+const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getHome = (req, res, next) => {
@@ -45,3 +46,17 @@ exports.getLoginForm = (req, res) => {
 exports.myAccount = (req, res, next) => {
     res.status(200).render('pages/account', { title: 'Login' })
 }
+
+exports.updateUserData = catchAsync(async (req, res, next) => {
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, {
+        username: req.body.name,
+        email: req.body.email
+    },
+        {
+            new: true,
+            runValidators: true
+        })
+
+    res.status(200).render('pages/account', { title: 'Account', user: updatedUser });
+
+})
