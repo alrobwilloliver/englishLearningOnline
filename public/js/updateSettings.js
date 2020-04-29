@@ -58,9 +58,6 @@ const updateMe = async (username, email) => {
 
         if (res.data.status === 'success') {
             alert('You have successfully updated user data!')
-            window.setTimeout(() => {
-                location.assign('/me')
-            }, 1500)
         }
 
     } catch (err) {
@@ -69,7 +66,7 @@ const updateMe = async (username, email) => {
     }
 }
 
-document.querySelector('.form-user-settings').addEventListener('submit', e => {
+document.querySelector('.form-user-settings').addEventListener('submit', async e => {
     e.preventDefault();
 
     const currentPassword = document.getElementById('password-current').value;
@@ -78,7 +75,11 @@ document.querySelector('.form-user-settings').addEventListener('submit', e => {
 
     console.log(currentPassword, password, passwordConfirm);
 
-    updatePassword(currentPassword, password, passwordConfirm);
+    await updatePassword(currentPassword, password, passwordConfirm);
+
+    document.getElementById('password-current').value = ''
+    document.getElementById('password').value = ''
+    document.getElementById('password-confirm').value = ''
 })
 
 document.querySelector('.form-user-data').addEventListener('submit', e => {
