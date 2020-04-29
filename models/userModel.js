@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
 userSchema.pre('save', function (next) {
     if (!this.isModified('password') || this.isNew) return next()
 
-    this.passwordChangedAt = Data.now() - 1000;
+    this.passwordChangedAt = Date.now() - 1000;
     next();
 })
 
@@ -63,6 +63,7 @@ userSchema.pre('save', async function (next) {
 })
 
 userSchema.methods.correctPassword = async function (candidatePassword, actualPassword) {
+    // console.log(candidatePassword, actualPassword)
     return await bcrypt.compare(candidatePassword, actualPassword)
 }
 

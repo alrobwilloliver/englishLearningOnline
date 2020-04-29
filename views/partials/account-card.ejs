@@ -47,7 +47,10 @@
                 <h2 class="heading-secondary u-margin-bottom-medium">
                     Your Account Settings
                 </h2>
-                <form action="/submit-user-data" method="POST" class="form form-user-data">
+
+                <!-- Submitting by by form action, not api in commented out html -->
+                <!-- <form action="/submit-user-data" method="POST" class="form form-user-data"> -->
+                <form class="form form-user-data">
                     <div class="form__group">
                         <label for="name" class="form__label">Username</label>
                         <input type="text" name="name" class="form__input" id="name" value=" <%= user.username %>  "
@@ -67,7 +70,7 @@
                 <h2 class="heading-secondary u-margin-bottom-medium">
                     Password Change
                 </h2>
-                <form class="form form-user-settings" action="#">
+                <form class="form form-user-settings">
                     <div class="form__group">
                         <label for="password-current" class="form__label">Current Password</label>
                         <input type="password" id="password-current" class="form__input" minlength='8' required>

@@ -19,3 +19,17 @@ exports.getMe = catchAsync(async (req, res, next) => {
         data: currentUser
     })
 })
+
+exports.updateMe = catchAsync(async (req, res, next) => {
+    const updatedUser = await User.findByIdAndUpdate(req.user.id, req.body, {
+        new: true,
+        runValidators: true
+    });
+
+    if (!updatedUser) next(new AppError('Your user doesn\'t exist.', 500));
+
+    res.status(200).json({
+        status: 'success',
+        data: updatedUser
+    })
+})
