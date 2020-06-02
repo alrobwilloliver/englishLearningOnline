@@ -36,6 +36,16 @@ app.use((req, res, next) => {
     next();
 })
 
+app.use(function (req, res, next) {
+
+    if (req.originalUrl && req.originalUrl.split("/").pop() === 'favicon.ico' || req.originalUrl.split("/").pop() === 'favicon.png') {
+        return res.sendStatus(204);
+    }
+
+    return next();
+
+});
+
 // Routes
 
 app.use('/', viewRouter);
