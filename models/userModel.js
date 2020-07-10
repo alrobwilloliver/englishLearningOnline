@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
         unique: [true, 'This email has already been taken. Please choose another'],
         validate: [validator.isEmail, 'Must be a valid email']
     },
+    photo: {
+        type: String,
+        default: 'default.jpg'
+    },
     role: {
         type: String,
         enum: ['student', 'admin'],

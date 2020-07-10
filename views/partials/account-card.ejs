@@ -61,6 +61,16 @@
                         <input id="email" name="email" type="email" class="form__input" value=" <%= user.email %> "
                             required>
                     </div>
+                    <div class="form__group form__photo-upload">
+                        <img src="/img/user/<%= user.photo %> " alt="User photo" class="form__user-photo">
+                        <input type="file" accept="image/*" id="photo" name="photo" class="form__upload">
+                        <label for="photo">Choose new photo</label>
+                    </div>
+                    <!--
+                            img.form__user-photo(src=`/img/users/${user.photo}`, alt='User photo')
+                input.form__upload(type='file', accept='image/*', id='photo', name='photo')
+                label(for='photo') Choose new photo
+                    -->
                     <div class="form__group right u-margin-bottom-medium">
                         <button class="btn btn--small btn--green">Save settings</button>
                     </div>
