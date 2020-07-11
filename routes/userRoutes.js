@@ -14,7 +14,7 @@ router.route('/forgetPassword').post(authController.forgetPassword);
 router.route('/resetPassword/:token').patch(authController.resetPassword);
 
 router.route('/changePassword').patch(authController.protect, authController.updatePassword);
-router.route('/updateMe').patch(authController.protect, userController.uploadUserPhoto, userController.updateMe)
+router.route('/updateMe').patch(authController.protect, userController.uploadUserPhoto, userController.resizeUserPhoto, userController.updateMe)
 
 router.route('/').get(authController.protect, authController.restrictTo('admin'), userController.getAllUsers)
 
