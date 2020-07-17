@@ -1,0 +1,18 @@
+extends baseEmail
+
+
+block content
+    p Hi #{name},
+    p Welcome to ALIO, we're glad to have you 🎉🙏
+    p Take a look at the selection of courses I have made for you all. You can also come and upload your own user photo to personalize your account!
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+        tbody
+            tr
+                td(align='left')
+                    table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+                        tbody
+                            tr
+                                td
+                                    a(href=`${url}`, target='_blank') Upload user photo
+    p If you need any help with any of the online classes, please don't hesitate to contact me!
+    p - Alan Oliver, CEO
