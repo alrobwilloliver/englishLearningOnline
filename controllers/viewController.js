@@ -60,3 +60,7 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     res.status(200).render('pages/account', { title: 'Account', user: updatedUser });
 
 })
+
+exports.forgetPassword = (req, res, next) => {
+    res.status(200).render('pages/passwordEmailReset');
+}

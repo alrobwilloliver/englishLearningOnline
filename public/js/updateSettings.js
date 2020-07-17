@@ -58,7 +58,7 @@ const updateMe = async (data) => {
         }
 
     } catch (err) {
-        console.log(err)
+        // console.log(err)
         alert(`Updating username and email failed. Error: ${err.response.data.message}`)
     }
 }

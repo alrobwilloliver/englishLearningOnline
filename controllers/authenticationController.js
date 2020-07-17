@@ -47,7 +47,6 @@ exports.signUp = catchAsync(async (req, res, next) => {
         role: req.body.role
     })
     const url = `${req.protocol}://${req.get('host')}/me`;
-    console.log(url);
     await new Email(newUser, url).sendWelcome();
 
     createAndSendToken(newUser, 201, res);
@@ -146,16 +145,16 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
     const resetToken = user.createPasswordResetToken()
 
     await user.save({ validateBeforeSave: false });
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
 
-    const message = `Forgot your password? Go to the link and submit your new password and password confirm at ${resetUrl}\n If you didn't forget your password ignore this email.`;
-    const subject = 'Password Reset (only available for 10 mins)'
+    // send to users email
     try {
-        // await sendEmail({ message, subject, email: user.email })
+        const resetUrl = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
+        await new Email(user, resetUrl).sendPasswordReset();
 
         res.status(200).json({
             status: 'success',
-            message: 'Email sent successfully!'
+            message: 'Email sent successfully!',
+            resetToken
         })
     } catch (err) {
         user.passwordResetToken = undefined;

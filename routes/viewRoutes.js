@@ -14,6 +14,10 @@ router.get('/signup', (req, res, next) => {
     res.render('pages/signup')
 })
 
+router.get('/passwordEmailReset', viewController.forgetPassword);
+
+router.patch('/passwordReset/:resetToken', authController.forgetPassword);
+
 router.get('/me', authController.protect, viewController.myAccount)
 
 router.get('/courses/:courseId', viewController.getAllOfCourse)
