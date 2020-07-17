@@ -45,15 +45,12 @@ const updatePassword = async (currentPassword, password, passwordConfirm) => {
     }
 }
 
-const updateMe = async (username, email) => {
+const updateMe = async (data) => {
     try {
         const res = await axios({
             method: 'PATCH',
             url: 'http://localhost:4000/api/v1/users/updateMe',
-            data: {
-                username,
-                email
-            }
+            data
         })
 
         if (res.data.status === 'success') {
@@ -85,8 +82,11 @@ document.querySelector('.form-user-settings').addEventListener('submit', async e
 document.querySelector('.form-user-data').addEventListener('submit', e => {
     e.preventDefault();
 
-    const username = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
+    const form = new FormData()
 
-    updateMe(username, email);
+    form.append('username', document.getElementById('name').value)
+    form.append('email', document.getElementById('email').value)
+    form.append('photo', document.getElementById('photo').files[0])
+
+    updateMe(form);
 })
