@@ -64,3 +64,7 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
 exports.forgetPassword = (req, res, next) => {
     res.status(200).render('pages/resetPassword');
 }
+
+exports.createNewPasswordWithEmailToken = (req, res, next) => {
+    res.status(200).render('pages/passwordEmailReset');
+}

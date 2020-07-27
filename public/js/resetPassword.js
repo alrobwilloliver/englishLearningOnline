@@ -18,7 +18,9 @@ document.querySelector('.form').addEventListener('submit', e => {
 
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('passwordConfirm').value;
-    const resetToken = docuemnt.querySelector('var').value;
-
+    const url = window.location.href;
+    const resetToken = url.match(/[^/]*$/)[0]
+    console.log(resetToken)
     resetPassword(password, passwordConfirm, resetToken);
+    alert('Successfully Updated Password')
 })
