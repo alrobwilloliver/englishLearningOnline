@@ -14,7 +14,7 @@ router.get('/signup', (req, res, next) => {
     res.render('pages/signup')
 })
 
-// router.get('/passwordEmailReset', viewController.forgetPassword);
+router.get('/passwordEmailReset', viewController.forgetPassword);
 
 router.get('/resetPassword/:resetToken', (req, res, next) => {
     res.render('pages/passwordEmailReset', { resetToken: req.params.resetToken })
