@@ -1,4 +1,4 @@
-const resetPassword = (password, passwordConfirm, resetToken) => {
+const resetPassword = async (password, passwordConfirm, resetToken) => {
     try {
         await axios({
             method: 'PATCH',

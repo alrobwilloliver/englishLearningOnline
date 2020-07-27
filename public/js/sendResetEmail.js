@@ -1,9 +1,11 @@
-const sendEmail = (email) => {
+const sendEmail = async (email) => {
     try {
         await axios({
             method: 'POST',
             url: 'http://localhost:4000/api/v1/users/forgetPassword',
-            data: email
+            data: {
+                email
+            }
         })
     } catch (err) {
         console.log(err)
