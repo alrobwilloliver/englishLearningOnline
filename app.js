@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const courseRouter = require('./routes/courseRoutes');
 const classRouter = require('./routes/classRoutes');
 const userRouter = require('./routes/userRoutes');
+const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const videoRouter = require('./routes/videoRoutes');
 const globalErrorHandler = require('./controllers/errorController');
@@ -52,6 +53,7 @@ app.use('/', viewRouter);
 app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/classes', classRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/booking', bookingRouter);
 app.use('/video', videoRouter);
 
 // error handling
