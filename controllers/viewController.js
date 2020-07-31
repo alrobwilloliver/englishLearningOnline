@@ -9,6 +9,10 @@ exports.getHome = (req, res, next) => {
     })
 }
 
+exports.getAllCourses = (req, res, next) => {
+    res.render('pages/courses');
+}
+
 exports.getOneOfCourse = catchAsync(async (req, res, next) => {
     let filter = {};
     if (!req.params.courseId || !req.params.classId) next(new AppError('This record doesn\'t exist!', 500));

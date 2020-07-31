@@ -23,8 +23,8 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
                 name: `${course.title} Course`,
                 description: 'A great course to learn from Alan on AILO, your online learning platform',
                 images: [course.image],
-                amount: 1000,
-                currency: 'usd',
+                amount: 2000,
+                currency: 'gbp',
                 quantity: 1
             }
         ]
