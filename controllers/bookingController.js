@@ -1,11 +1,13 @@
-const stripe = require('stripe')(process.env.STRIPE_KEY)
+const Stripe = require('stripe')
 const Course = require('./../models/courseModel');
 const catchAsync = require('./../utils/catchAsync');
 const Class = require('./../models/classModel');
 const AppError = require('./../utils/appError');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
-    // console.log(process.env)
+
+    const stripe = Stripe(process.env.STRIPE_KEY);
+
     // 1) Get the currently booked course
     const course = await Course.findById(req.params.courseId)
 
@@ -13,7 +15,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         success_url: `${req.protocol}://${req.get('host')}/`,
-        cancel_url: `${req.protocol}://${req.get('host')}/course/${course.id}`,
+        cancel_url: `${req.protocol}://${req.get('host')}/course/${course._id}`,
         customer_email: req.user.email,
         client_reference_id: req.params.courseId,
         line_items: [
