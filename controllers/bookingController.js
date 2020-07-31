@@ -5,11 +5,12 @@ const Class = require('./../models/classModel');
 const AppError = require('./../utils/appError');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
+    // console.log(process.env)
     // 1) Get the currently booked course
     const course = await Course.findById(req.params.courseId)
 
     // 2) Create the checkout session
-    const session = await stripe.checkout.session.create({
+    const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         success_url: `${req.protocol}://${req.get('host')}/`,
         cancel_url: `${req.protocol}://${req.get('host')}/course/${course.id}`,
