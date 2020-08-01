@@ -16,7 +16,7 @@ exports.getAllCourses = (req, res, next) => {
 
 exports.getCourseInfo = catchAsync(async (req, res, next) => {
     const course = await Course.findById(req.params.courseId);
-    res.render('/pages/course-info', { course })
+    res.render('pages/course-info', { course })
 })
 
 exports.getOneOfCourse = catchAsync(async (req, res, next) => {
