@@ -1,5 +1,6 @@
 const AppError = require('../utils/appError');
 const Class = require('../models/classModel');
+const Course = require('../models/courseModel');
 const User = require('../models/userModel');
 const catchAsync = require('../utils/catchAsync');
 
@@ -12,6 +13,11 @@ exports.getHome = (req, res, next) => {
 exports.getAllCourses = (req, res, next) => {
     res.render('pages/courses');
 }
+
+exports.getCourseInfo = catchAsync(async (req, res, next) => {
+    const course = await Course.findById(req.params.courseId);
+    res.render('/pages/course-info', { course })
+})
 
 exports.getOneOfCourse = catchAsync(async (req, res, next) => {
     let filter = {};
