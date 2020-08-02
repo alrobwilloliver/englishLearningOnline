@@ -730,6 +730,7 @@ body {
   fill: #bbb; }
 
 .section-cta {
+  margin-top: -10rem;
   padding: 3rem;
   padding-bottom: 11rem;
   padding-top: 5rem;
@@ -739,6 +740,7 @@ body {
   position: relative;
   max-width: 105rem;
   margin: 0 auto;
+  margin-top: 10rem;
   overflow: hidden;
   background-color: #fff;
   padding: 9rem 5rem 9rem 21rem;
