@@ -28,7 +28,8 @@
             <p class="cta__text">Informative lecture videos packed with resources!</p>
 
             <% if (user) { %>
-            <button class="btn btn--green span-all-rows">Buy course now!</button>
+            <button class="btn btn--green span-all-rows" id="buy-course" data-course-id="<%= course.id %>">Buy course
+                now!</button>
             <% } else { %>
             <button class="btn btn--green span-all-rows" href="/login">Login to buy course!</button>
             <% } %>
