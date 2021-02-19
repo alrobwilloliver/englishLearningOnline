@@ -58,7 +58,6 @@ app.use('/video', videoRouter);
 // error handling
 
 app.all('*', (req, res, next) => {
-    console.log(req.originalUrl)
     return next(new AppError(`Can't find the url ${req.originalUrl} on this server!`, 404))
 })
 
