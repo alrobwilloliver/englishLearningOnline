@@ -1,0 +1,67 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: $gutter-vertical-small;
+
+    @include respond(tab-port) {
+        grid-template-columns: 1fr;
+    }
+
+    @include respond(phone) {
+        grid-template-columns: 1fr;
+        grid-column: 10rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+}
+
+.class__card {
+    background-image: url(../img/welcome.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 25rem;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+    @include respond(tab-port) {
+        width: 80%;
+        left: 10%;
+    }
+
+    @include respond(phone) {
+        width: 80%;
+        left: 10%;
+    }
+
+    &-details {
+        position: absolute;
+        bottom: 0;
+        background-color: $color-white;
+        width: 100%;
+        height: 7rem;
+        padding: 1.1rem 3rem;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: height ease-in 0.5s;
+
+
+        &-text {
+            margin-top: 1.2rem;
+            position: absolute;
+            right: 1rem;
+        }
+    }
+
+    &:hover > &-details {
+        transition: height ease-in 0.5s;
+        height: 25rem;
+
+        @media only screen and (max-width: 56.25em), only screen and (hover: none)  {
+            transition: none;
+            height: 7rem;
+        }
+    }
+}

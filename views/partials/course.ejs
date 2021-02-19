@@ -1,0 +1,38 @@
+<section class="section-header">
+    <div class="header__hero">
+        <div class="header__hero-overlay">&nbsp;</div>
+        <img src="/img/<%= course.image %>" alt="" class="header__hero-img" alt="<%= course.title %>">
+    </div>
+
+    <div class="heading-box">
+        <h1 class="heading-primary">
+            <span>
+                <%= course.title %>
+            </span>
+            <div class="heading-box__detail">
+                <svg href="" class="heading-box__icon"></svg>
+            </div>
+        </h1>
+    </div>
+</section>
+
+<section class="section-cta">
+    <div class="cta">
+        <div class="cta__img cta__img--logo">
+            <img src="/img/logo-white.png" alt="AILO logo">
+        </div>
+        <img src="/img/ailo-2.jpg" alt="learning English picture" class="cta__img cta__img--1">
+        <img src="/img/ailo-3.jpg" alt="learning English picture" class="cta__img cta__img--2">
+        <div class="cta__content">
+            <h2 class="heading-secondary">What are you waiting for?</h2>
+            <p class="cta__text">Informative lecture videos packed with resources!</p>
+
+            <% if (user) { %>
+            <button class="btn btn--green span-all-rows" id="buy-course" data-course-id="<%= course.id %>">Buy course
+                now!</button>
+            <% } else { %>
+            <button class="btn btn--green span-all-rows" href="/login">Login to buy course!</button>
+            <% } %>
+        </div>
+    </div>
+</section>
