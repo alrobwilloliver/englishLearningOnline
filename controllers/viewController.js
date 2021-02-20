@@ -2,6 +2,7 @@ const AppError = require('../utils/appError');
 const Class = require('../models/classModel');
 const Course = require('../models/courseModel');
 const User = require('../models/userModel');
+const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getHome = (req, res, next) => {
@@ -54,8 +55,19 @@ exports.getLoginForm = (req, res) => {
 }
 
 exports.myAccount = (req, res, next) => {
-    res.status(200).render('pages/account', { title: 'Login' })
+    res.status(200).render('pages/account', { title: 'My Account' })
 }
+
+exports.getMyCourses = catchAsync( async (req, res, next) => {
+    // 1) Find all bookings
+    const bookings = await Booking.find({ user: req.user.id })
+    // 2) Find tours with the returned IDs
+    const courseIds = bookings.map(el => el.course);
+    
+    const courses = await Course.find({ _id: { $in: courseIds }});
+
+    res.status(200).render('pages/mycourses', { title: 'My Account - Courses', courses })
+})
 
 exports.updateUserData = catchAsync(async (req, res, next) => {
     const updatedUser = await User.findByIdAndUpdate(req.user.id, {

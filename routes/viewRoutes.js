@@ -24,6 +24,8 @@ router.patch('/passwordReset/:resetToken', authController.forgetPassword);
 
 router.get('/me', authController.protect, viewController.myAccount)
 
+router.get('/mycourses', authController.protect, viewController.getMyCourses)
+
 router.get('/courses', viewController.getAllCourses)
 
 router.get('/courses/:courseId', viewController.getAllOfCourse)

@@ -78,7 +78,7 @@ exports.logout = (req, res) => {
 }
 
 exports.protect = catchAsync(async (req, res, next) => {
-
+    console.log('hello im in protect')
     let token;
 
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
@@ -102,6 +102,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     if (currentUser.changedPasswordAt(decoded.ait)) {
         return next(new AppError('User recently changed password. Please login again', 401));
     }
+    console.log('hello im here')
 
     req.user = currentUser;
     // req.locals.user = currentUser;
