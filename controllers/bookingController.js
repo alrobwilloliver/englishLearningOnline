@@ -11,6 +11,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
     // 1) Get the currently booked course
     const course = await Course.findById(req.params.courseId)
+    console.log(course)
     // 2) Create the checkout session
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],

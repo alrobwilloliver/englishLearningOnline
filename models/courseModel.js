@@ -10,6 +10,9 @@ const courseSchema = new mongoose.Schema({
     },
     image: {
         type: String
+    },
+    price: {
+        type: Number
     }
 })
 
