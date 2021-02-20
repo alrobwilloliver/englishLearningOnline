@@ -27,10 +27,10 @@ router.get('/me', authController.protect, viewController.myAccount)
 router.get('/mycourses', authController.protect, viewController.getMyCourses)
 
 router.get('/courses', viewController.getAllCourses)
+// we need a route here to protect for to check that the user has purchased a course first
+router.get('/courses/:courseId', authController.protect, viewController.getAllOfCourse)
 
-router.get('/courses/:courseId', viewController.getAllOfCourse)
-
-router.get('/courses/:courseId/classes', viewController.getCourseInfo)
+router.get('/courses/:courseId/classes', authController.protect, viewController.getCourseInfo)
 
 router.get('/courses/:courseId/classes/:classId', authController.protect, viewController.getOneOfCourse)
 

@@ -25,13 +25,13 @@ const bookingSchema = new mongoose.Schema({
     }
 })
 
-// bookingSchema.pre(/^find/, function (next) {
-//     this.populate('user').populate({
-//         path: 'course',
-//         select: 'name'
-//     })
-//     next()
-// })
+bookingSchema.pre(/^find/, function (next) {
+    this.populate('user').populate({
+        path: 'courses',
+        select: 'title'
+    })
+    next()
+})
 
 const Booking = mongoose.model('Booking', bookingSchema);
 
