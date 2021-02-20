@@ -6,7 +6,7 @@ const logout = async (req, res) => {
         })
         if (res.data.status === 'success') {
             alert('You have successfully logged out.')
-            location.reload(true);
+            location.reload();
         }
     } catch (err) {
         console.log(err)

@@ -2,6 +2,7 @@ const Stripe = require('stripe')
 const Course = require('./../models/courseModel');
 const catchAsync = require('./../utils/catchAsync');
 const Class = require('./../models/classModel');
+const Booking = require('../models/bookingModel');
 const AppError = require('./../utils/appError');
 
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
@@ -14,7 +15,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     // 2) Create the checkout session
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
-        success_url: `${req.protocol}://${req.get('host')}/`,
+        success_url: `${req.protocol}://${req.get('host')}/?course=${req.params.courseId}&user=${req.user.id}&${course.price}`,
         cancel_url: `${req.protocol}://${req.get('host')}/course/${course._id}`,
         customer_email: req.user.email,
         client_reference_id: req.params.courseId,
@@ -35,3 +36,13 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
         session
     })
 })
+
+exports.createBookingCheckout = catchAsync(async (req, res, next) => {
+    const { course, user, price } = req.query;
+
+    if (!course && !user && !price) return next();
+
+    await Booking.create({ course, user, price });
+
+    res.redirect(req.originalUrl.split('?')[0]);
+});

@@ -5,7 +5,6 @@
     <div class='nav__els'>
         <a href="/courses" class="nav__el">All Courses</a>
         <% if (locals.user) { %>
-        <a href='/login' class="nav__el">My Courses</a>
         <a class="nav__el nav__el--logout">Log Out</a>
         <a href='/me' class="nav__el">
             <image src='/img/user/<%= user.photo %> ' class="nav__user-img" alt='User photo' />

@@ -6,7 +6,6 @@
     <div style='display: flex'>
         <a href="/courses" class="nav__el-home">All Courses</a>
         <% if (locals.user) { %>
-        <a href='#' class="nav__el-home">My Courses</a>
         <a class="nav__el-home nav__el--logout">Log Out</a>
         <a href='/me' class="nav__el-home ">
             <image src='/img/user/<%= user.photo %>' class="nav__user-img" alt='User photo' />

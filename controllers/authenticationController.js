@@ -115,7 +115,6 @@ exports.isLoggedIn = catchAsync(async (req, res, next) => {
     if (req.cookies.jwt) {
         // verifies the token
         const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
-
         // check if the user exists
         const currentUser = await User.findById(decoded.id);
         if (!currentUser) {

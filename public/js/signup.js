@@ -18,10 +18,6 @@ const signUp = async (username, email, password, passwordConfirm) => {
             }, 1500)
         }
     } catch (err) {
-<<<<<<< HEAD
-        console.log(err)
-=======
->>>>>>> 7cc58a050b2e5849177c23b88f4b5e60ba9be6c7
         alert(err.response.data.message)
     }
 }
