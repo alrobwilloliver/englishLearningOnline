@@ -4,6 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const streamifier = require('streamifier');
+const { request } = require('http');
 
 exports.getVideo = catchAsync(async (req, res, next) => {
 
@@ -24,31 +25,38 @@ exports.getVideo = catchAsync(async (req, res, next) => {
         Range: 'bytes=0-49999'
     };
     
-    s3.listObjectsV2({ Bucket: process.env.AWS_BUCKET }, function (err, data) {
-        let objectData;
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(data)
-            objectData = data.Contents.filter((e) => e.Key === bucketParams.Key);
-            console.log(objectData)
-        }
-        
-    })
-    
     s3.getObject(bucketParams, function(err, data) {
         if (err) {
             console.log(err);
         } else {
             console.log("ENDPOINT", this.request.httpRequest.endpoint);
             console.log(data)
+            // const { ContentLength, } = data;
+            // const readableStream = streamifier.createReadStream(data.Body.data)
 
-            const { ContentLength, } = data;
-            const readableStream = streamifier.createReadStream(data.Body.data)
-            res.status(200).json({
-                status: 'success',
-                body: data.Body
+            // 1) Get the video from s3 in response
+            // 2) Write the response in to a local file with a write stream
+            // 3) Create a read stream to read the video file
+
+            const buffer = Buffer.from(data.Body)
+            console.log('length', buffer.length)
+
+            const writeStream = fs.createWriteStream('/video/class.mp4');
+            writeStream.path(data.Body)
+            
+            const readStream = fs.createReadStream('/video/class.mp4');
+            const vidData = []
+
+            readStream.on('data', (chunk) => {
+                data.push(chunk);
+                console.log('data: ', chunk, chunk.length)
             })
+
+            // 1) Get the video from s3 in response
+            // 2) Write the response in to a local file with a write stream
+            // 3) Create a read stream to read the video file
+
+            
         }
     })
 })

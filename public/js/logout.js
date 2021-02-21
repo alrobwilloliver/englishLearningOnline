@@ -9,7 +9,7 @@ const logout = async (req, res) => {
             location.reload();
         }
     } catch (err) {
-        console.log(err)
+        // console.log(err)
         alert('Error logging out! Try again.')
     }
 }

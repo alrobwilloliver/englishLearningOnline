@@ -70,7 +70,7 @@ document.querySelector('.form-user-settings').addEventListener('submit', async e
     const password = document.getElementById('password').value;
     const passwordConfirm = document.getElementById('password-confirm').value;
 
-    console.log(currentPassword, password, passwordConfirm);
+    // console.log(currentPassword, password, passwordConfirm);
 
     await updatePassword(currentPassword, password, passwordConfirm);
 

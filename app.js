@@ -10,6 +10,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+// const compression = require('compression');
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.use((req, res, next) => {
     // console.log(req.cookies);
     next();
 })
+
+// app.use(compression)
 
 app.use(function (req, res, next) {
 

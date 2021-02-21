@@ -5,7 +5,7 @@ const bookCourse = async courseId => {
         // 1) get the session from the server (api)
         const session = await axios(`http://localhost:4000/api/v1/booking/checkout-session/${courseId}`)
         // 2) Create checkout form + charge credit card for us
-        console.log(session);
+        // console.log(session);
 
         await stripe.redirectToCheckout({
             sessionId: session.data.session.id
