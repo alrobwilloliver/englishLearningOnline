@@ -4,64 +4,61 @@ const catchAsync = require('../utils/catchAsync');
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const streamifier = require('streamifier');
-const { request } = require('http');
 
 exports.getVideo = catchAsync(async (req, res, next) => {
-
-    AWS.config.update({
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-        region: process.env.AWS_REGION
-    });
+    
+    // 1) Get the video from s3 in response
+    // AWS.config.update({
+    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    //     region: process.env.AWS_REGION
+    // });
 
     const s3 = new AWS.S3({
-        signatureVersion: 'v4'
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     });
-
-    
     const bucketParams = {
         Bucket: process.env.AWS_BUCKET,
         Key: 'Lecture 12 - Dream House.mp4',
-        Range: 'bytes=0-49999'
     };
+    const sessionParams = {
+        maxPartSize: 20,//default 20MB
+        concurrentStreams: 5,//default 5
+        maxRetries: 3,//default 3
+        totalObjectSize: 1583489971//required size of object being downloaded
+    }
+    const downloader = require('s3-download')(s3);
+    const d = downloader.download(bucketParams, sessionParams)
+
+    d.on('error', function(err) {
+        console.log(err)
+    })
+
+    d.on('part', function(part) {
+        console.log(part)
+    })
+
+    d.on('downloaded', function(end) {
+        console.log(end)
+    })
     
-    s3.getObject(bucketParams, function(err, data) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("ENDPOINT", this.request.httpRequest.endpoint);
-            console.log(data)
-            // const { ContentLength, } = data;
-            // const readableStream = streamifier.createReadStream(data.Body.data)
+    // 2) Write the response in to a local file with a write stream
+    const writeStream = fs.createWriteStream('/video/class.mp4');
+    d.pipe(writeStream);
+    // 3) Create a read stream to read the video file
+    
+})
 
-            // 1) Get the video from s3 in response
-            // 2) Write the response in to a local file with a write stream
-            // 3) Create a read stream to read the video file
+/*
 
-            const buffer = Buffer.from(data.Body)
-            console.log('length', buffer.length)
-
-            const writeStream = fs.createWriteStream('/video/class.mp4');
-            writeStream.path(data.Body)
-            
-            const readStream = fs.createReadStream('/video/class.mp4');
+const readStream = fs.createReadStream('/video/class.mp4');
             const vidData = []
 
             readStream.on('data', (chunk) => {
                 data.push(chunk);
                 console.log('data: ', chunk, chunk.length)
             })
-
-            // 1) Get the video from s3 in response
-            // 2) Write the response in to a local file with a write stream
-            // 3) Create a read stream to read the video file
-
-            
-        }
-    })
-})
-
-/*
 
 s3.listObjects(bucketParams, function(err, data) {
     if (err) {
