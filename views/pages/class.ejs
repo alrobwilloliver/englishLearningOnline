@@ -8,11 +8,17 @@
     <%- include('../partials/nav') %>
     <div class="row">
         <div class="u-margin-bottom-medium"></div>
-        <h2 class="heading-secondary "> <%= data.name %> </h2>
-        <video width="320" height="240" controls autoplay>
-            <source src="../../../../video/<%= data.name.replace(/\s/g, '') + '.mp4' %>" type="video/mp4">
-
-        </video>
+            <div style='margin: auto; width: 50%'>
+                <div style='text-align: center;'>
+                    <h2 class="heading-secondary"> <%= data.name %> </h2>
+                </div>
+                <div>
+                    <video width="540" height="360" controls>
+                        <source src="../../../../video/<%= data.name.replace(/\s/g, '') + '.mp4' %>" type="video/mp4">
+            
+                    </video>
+                </div>
+            </div>
     </div>
 
     <%- include('../partials/footer') %>

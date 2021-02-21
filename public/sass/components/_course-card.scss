@@ -85,7 +85,7 @@
 .card__data svg {
   margin-right: 0.7rem;
 }
-.card__icon {
+.card__icon-bought {
   height: 2rem;
   width: 2rem;
   fill: #55c57a;
@@ -101,19 +101,19 @@
   grid-row-gap: 1rem;
   margin-top: auto;
 }
-.card__footer-value {
+.card__footer-value-bought {
   font-weight: 700;
 }
-.card__footer-text {
+.card__footer-text-bought {
   color: #999;
 }
-.card__ratings {
+.card__ratings-bought {
   grid-row: 2 / 3;
 }
-.card .btn-small,
-.card .btn {
+.card-bought .btn-small,
+.card-bought .btn {
   grid-row: 1 / 3;
   justify-self: end;
   -ms-flex-item-align: center;
   align-self: center;
-}
+} 

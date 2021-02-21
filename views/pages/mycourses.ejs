@@ -17,19 +17,19 @@
                     </div>
                     <div class="card__details-bought">
                         <h4 class="card__sub-heading-bought"><%= courses[i].title %></h4>
-                        <div class="card__data"><svg class="card__icon">
+                        <div class="card__data-bought"><svg class="card__icon-bought">
                                 <use xlink:href="/img/icons.svg#icon-calendar"></use>
                             </svg><span>From Now</span></div>
-                        <div class="card__data"><svg class="card__icon">
+                        <div class="card__data-bought"><svg class="card__icon-bought">
                                 <use xlink:href="/img/icons.svg#icon-flag"></use>
                             </svg><span>Suitable for any non native speaker</span></div>
-                        <div class="card__data"><svg class="card__icon">
+                        <div class="card__data-bought"><svg class="card__icon-bought">
                                 <use xlink:href="/img/icons.svg#icon-user"></use>
                             </svg><span>Lifetime Access</span></div>
                     </div>
                     <div class="card__footer-bought">
-                        <p><span class="card__footer-value"></span> <span class="card__footer-text-bought">£<%= courses[i].price %> per person</span></p>
-                        <p class="card__ratings"><span class="card__footer-value"></span> <span class="card__footer-text-bought">5 Star Rating</span></p><a class="btn btn--green btn--small" href="/courses/<%= courses[i]._id %>/">Study</a>
+                        <p><span class="card__footer-value-bought"></span> <span class="card__footer-text-bought">£<%= courses[i].price %> per person</span></p>
+                        <p class="card__ratings-bought"><span class="card__footer-value-bought"></span> <span class="card__footer-text-bought">5 Star Rating</span></p><a class="btn btn--green" href="/courses/<%= courses[i]._id %>/">Study</a>
                     </div>
                 </div>
                 <% } %>
