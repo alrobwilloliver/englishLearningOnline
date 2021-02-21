@@ -5,12 +5,10 @@ const classRouter = require('./routes/classRoutes');
 const userRouter = require('./routes/userRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
-const videoRouter = require('./routes/videoRoutes');
 const globalErrorHandler = require('./controllers/errorController');
 const AppError = require('./utils/appError');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-// const compression = require('compression');
 
 const app = express();
 
@@ -37,8 +35,6 @@ app.use((req, res, next) => {
     next();
 })
 
-// app.use(compression)
-
 app.use(function (req, res, next) {
 
     if (req.originalUrl && req.originalUrl.split("/").pop() === 'favicon.ico' || req.originalUrl.split("/").pop() === 'favicon.png') {
@@ -56,7 +52,6 @@ app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/classes', classRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/booking', bookingRouter);
-app.use('/video', videoRouter);
 
 // error handling
 

@@ -32,7 +32,7 @@ router.get('/courses/:courseId', authController.protect, viewController.getAllOf
 
 router.get('/courses/:courseId/classes', authController.protect, viewController.getCourseInfo)
 
-router.get('/courses/:courseId/classes/:classId', authController.protect, viewController.getOneOfCourse)
+router.get('/courses/:courseId/classes/:classId/video', authController.protect, viewController.getOneOfCourse)
 
 router.post('/submit-user-data', authController.protect, viewController.updateUserData)
 

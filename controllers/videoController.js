@@ -4,6 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const streamifier = require('streamifier');
+const Class = require('../models/classModel');
 
 exports.getVideo = catchAsync(async (req, res, next) => {
     
@@ -13,41 +14,43 @@ exports.getVideo = catchAsync(async (req, res, next) => {
     //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     //     region: process.env.AWS_REGION
     // });
+    // const s3 = new AWS.S3({
+    //     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    //     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    // });
+    // const bucketParams = {
+    //     Bucket: process.env.AWS_BUCKET,
+    //     Key: 'Lecture 12 - Dream House.mp4',
+    // };
+    // const sessionParams = {
+    //     maxPartSize: 20,//default 20MB
+    //     concurrentStreams: 5,//default 5
+    //     maxRetries: 3,//default 3
+    //     totalObjectSize: 5000//required size of object being downloaded
+    // }
+    // const downloader = require('s3-download')(s3);
+    // const d = downloader.download(bucketParams, sessionParams)
 
-    const s3 = new AWS.S3({
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    });
-    const bucketParams = {
-        Bucket: process.env.AWS_BUCKET,
-        Key: 'Lecture 12 - Dream House.mp4',
-    };
-    const sessionParams = {
-        maxPartSize: 20,//default 20MB
-        concurrentStreams: 5,//default 5
-        maxRetries: 3,//default 3
-        totalObjectSize: 1583489971//required size of object being downloaded
-    }
-    const downloader = require('s3-download')(s3);
-    const d = downloader.download(bucketParams, sessionParams)
+    // d.on('error', function(err) {
+    //     console.log('err',err)
+    // })
 
-    d.on('error', function(err) {
-        console.log(err)
-    })
+    // d.on('part', function(part) {
+    //     console.log('part',part)
+    // })
 
-    d.on('part', function(part) {
-        console.log(part)
-    })
-
-    d.on('downloaded', function(end) {
-        console.log(end)
-    })
+    // d.on('downloaded', function(end) {
+    //     console.log('end',end)
+    // })
     
-    // 2) Write the response in to a local file with a write stream
-    const writeStream = fs.createWriteStream('/video/class.mp4');
-    d.pipe(writeStream);
+    // // 2) Write the response in to a local file with a write stream
+    // const writeStream = fs.createWriteStream('C:\\Users\\alan\\OneDrive\\Documents\\alrobwilloliver\\englishLearningOnline-master\\public\\video\\class.mp4');
+    // d.pipe(writeStream);
     // 3) Create a read stream to read the video file
-    
+    console.log(req.params)
+    // const class = await Class.findById()
+
+    res.status(200).render('pages/class')
 })
 
 /*

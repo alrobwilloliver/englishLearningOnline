@@ -5,18 +5,17 @@
         <% for(var i = 0; i < data.length; i++) { %>
 
 
-        <a style='display: block' href="/courses/<%= data[i].course %>/classes/<%= data[i]._id %>">
-            <div class='class__card'>
+        <a style='display: block' href="/courses/<%= data[i].course %>/classes/<%= data[i]._id %>/video">
+            <div class='class__card' style="background-image: url(../../img/<%= data[i].img %>)">
                 <div class='class__card-details'>
                     <p class="card-paragraph"><%= data[i].name %></p>
                     <p class="card-paragraph-small">
-                        <em>Duration: <%= data[i].duration %> mins</em>
+                        <em>Duration: <%= data[i].duration %></em>
+                        <em>Difficulty: <%= data[i].difficulty %></em>
                     </p>
                     <p class="card-paragraph-description">
                         Description: <br>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla at tempore vel iure voluptate
-                        officiis beatae totam corrupti corporis optio, odit, qui consectetur accusamus veritatis, neque
-                        molestiae asperiores dolor nihil?
+                        <%= data[i].description %>
                     </p>
                 </div>
             </div>

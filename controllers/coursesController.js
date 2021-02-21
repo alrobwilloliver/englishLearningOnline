@@ -13,6 +13,7 @@ exports.getAllCourses = catchAsync(async (req, res, next) => {
 
 exports.getCourse = catchAsync(async (req, res, next) => {
     const course = await Course.findById(req.params.id);
+    console.log('course', course)
     res.status(200).json({
         status: 'success',
         data: course
@@ -41,8 +42,8 @@ exports.getOneByCourse = catchAsync(async (req, res, next) => {
     filter = { $and: [{ _id: req.params.classId }, { course: req.params.courseId }] }
 
     const lesson = await Class.find(filter);
-
-    res.status(200).json({
+    // console.log(lesson)
+    res.status(200).render('pages/class', {
         status: 'success',
         data: lesson
     })

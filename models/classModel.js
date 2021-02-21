@@ -28,6 +28,8 @@ const classSchema = new mongoose.Schema({
         ref: 'Course',
         required: [true, 'This class must belong to a course!']
     },
+    img: String,
+    description: String,
     duration: String
 }, {
     toJSON: { virtuals: true },
