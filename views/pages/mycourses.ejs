@@ -7,16 +7,16 @@
     <body>
         <%- include('../partials/nav') %>
             <main class="main">
-                <div class="card-container">
+                <div class="card-container-bought">
                 <% for(var i = 0; i < courses.length; i++) { %>
-                <div class="card">
-                    <div class="card__header">
-                        <div class="card__picture">
-                            <div class="card__picture-overlay">&nbsp;</div><img class="card__picture-img" src="/img/englishLearning.png" alt="English Langauge Course Card Picture of Person Studying" />
+                <div class="card-bought">
+                    <div class="card__header-bought">
+                        <div class="card__picture-bought">
+                            <div class="card__picture-overlay-bought">&nbsp;</div><img class="card__picture-img-bought" src="/img/englishLearning.png" alt="English Langauge Course Card Picture of Person Studying" />
                         </div>
                     </div>
-                    <div class="card__details">
-                        <h4 class="card__sub-heading"><%= courses[i].title %></h4>
+                    <div class="card__details-bought">
+                        <h4 class="card__sub-heading-bought"><%= courses[i].title %></h4>
                         <div class="card__data"><svg class="card__icon">
                                 <use xlink:href="/img/icons.svg#icon-calendar"></use>
                             </svg><span>From Now</span></div>
@@ -27,9 +27,9 @@
                                 <use xlink:href="/img/icons.svg#icon-user"></use>
                             </svg><span>Lifetime Access</span></div>
                     </div>
-                    <div class="card__footer">
-                        <p><span class="card__footer-value"></span> <span class="card__footer-text">£<%= courses[i].price %> per person</span></p>
-                        <p class="card__ratings"><span class="card__footer-value"></span> <span class="card__footer-text">5 Star Rating</span></p><a class="btn btn--green btn--small" href="/courses/<%= courses[i]._id %>/">Study</a>
+                    <div class="card__footer-bought">
+                        <p><span class="card__footer-value"></span> <span class="card__footer-text-bought">£<%= courses[i].price %> per person</span></p>
+                        <p class="card__ratings"><span class="card__footer-value"></span> <span class="card__footer-text-bought">5 Star Rating</span></p><a class="btn btn--green btn--small" href="/courses/<%= courses[i]._id %>/">Study</a>
                     </div>
                 </div>
                 <% } %>
