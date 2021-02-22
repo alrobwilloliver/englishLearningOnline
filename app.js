@@ -51,7 +51,7 @@ app.use('/', viewRouter);
 app.use('/api/v1/courses', courseRouter);
 app.use('/api/v1/classes', classRouter);
 app.use('/api/v1/users', userRouter);
-app.use('/api/v1/booking', bookingRouter);
+app.use('/api/v1/bookings', bookingRouter);
 
 // error handling
 

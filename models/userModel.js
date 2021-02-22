@@ -41,6 +41,10 @@ const userSchema = new mongoose.Schema({
             message: 'Passwords are not the same'
         }
     },
+    course: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Course'
+    },
     passwordChangedAt: Date,
     passwordResetToken: String,
     passwordResetExpires: Date

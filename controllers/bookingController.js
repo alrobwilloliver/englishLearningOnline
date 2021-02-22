@@ -46,3 +46,20 @@ exports.createBookingCheckout = catchAsync(async (req, res, next) => {
 
     res.redirect(req.originalUrl.split('?')[0]);
 });
+
+exports.getAllBookings = catchAsync(async (req, res, next) => {
+    const bookings = await Booking.find()
+
+    res.status(200).json({
+        status: 'success',
+        bookings
+    })
+})
+
+exports.checkMyBooking = catchAsync(async (req, res, next) => {
+
+    const { courseId } = req.params;
+    const myBooking = await Booking.find({ $and: [ { user: { _id: req.user.id } }, { course: { _id: courseId } } ] })
+    if (!myBooking || myBooking.length === 0) next(new AppError('You have not paid for this course yet. Please make your purchase before you can access the classes.', 403))
+    next()
+})
