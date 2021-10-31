@@ -24,7 +24,10 @@ const login = async (username, password) => {
 
 document.querySelector('.form').addEventListener('submit', e => {
     e.preventDefault();
-    const username = document.getElementById('name').value;
+    let username = document.getElementById('name').value;
+    if (username) {
+        username = username.trim()
+    }
     const password = document.getElementById('password').value;
     // console.log(password);
 
