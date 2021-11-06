@@ -2,7 +2,7 @@ const logout = async (req, res) => {
     try {
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4000/api/v1/users/logout'
+            url: window.location.origin + '/api/v1/users/logout'
         })
         if (res.data.status === 'success') {
             alert('You have successfully logged out.')

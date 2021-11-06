@@ -49,7 +49,7 @@ const updateMe = async (data) => {
     try {
         const res = await axios({
             method: 'PATCH',
-            url: 'http://localhost:4000/api/v1/users/updateMe',
+            url: window.location.origin + '/api/v1/users/updateMe',
             data
         })
 

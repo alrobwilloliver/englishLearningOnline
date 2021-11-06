@@ -2,7 +2,7 @@ const sendEmail = async (email) => {
     try {
         await axios({
             method: 'POST',
-            url: 'http://localhost:4000/api/v1/users/forgetPassword',
+            url: window.location.origin + '/api/v1/users/forgetPassword',
             data: {
                 email
             }
