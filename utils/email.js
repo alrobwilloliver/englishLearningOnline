@@ -12,8 +12,15 @@ module.exports = class Email {
 
     newTransport() {
         if (process.env.NODE_ENV === 'production') {
-            // sendgrid
-            return 1
+            // mailjet
+            return nodemailer.createTransport({
+                port: process.env.MAIL_JET_PORT,
+                host: process.env.STMP_SERVER,
+                auth: {
+                    user: process.env.MAIL_JET_USERNAME,
+                    pass: process.env.MAIL_JET_SECRET_KEY
+                }
+            })
         }
 
         return nodemailer.createTransport({
