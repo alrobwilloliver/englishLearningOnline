@@ -2,7 +2,7 @@ const signUp = async (username, email, password, passwordConfirm) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://localhost:4000/api/v1/users/signup',
+            url: window.location.origin + '/api/v1/users/signup',
             data: {
                 username,
                 email,

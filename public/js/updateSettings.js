@@ -24,7 +24,7 @@ const updatePassword = async (currentPassword, password, passwordConfirm) => {
     try {
         const res = await axios({
             method: 'PATCH',
-            url: 'http://localhost:4000/api/v1/users/changePassword',
+            url: window.location.origin + '/api/v1/users/changePassword',
             data: {
                 currentPassword,
                 password,

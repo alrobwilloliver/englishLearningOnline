@@ -2,7 +2,7 @@ const resetPassword = async (password, passwordConfirm, resetToken) => {
     try {
         await axios({
             method: 'PATCH',
-            url: `http://localhost:4000/api/v1/users/resetPassword/${resetToken}`,
+            url: window.location.origin + `/api/v1/users/resetPassword/${resetToken}`,
             data: {
                 password,
                 passwordConfirm

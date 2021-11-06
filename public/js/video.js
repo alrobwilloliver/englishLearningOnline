@@ -2,7 +2,7 @@ const video = async () => {
     try {
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:4000/video',
+            url: window.location.origin + '/video',
         })
 
     } catch (err) {
