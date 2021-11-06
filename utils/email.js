@@ -22,7 +22,6 @@ module.exports = class Email {
                 }
             })
         }
-
         return nodemailer.createTransport({
             port: process.env.EMAIL_PORT,
             host: process.env.EMAIL_HOST,
