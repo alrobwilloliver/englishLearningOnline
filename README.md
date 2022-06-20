@@ -10,8 +10,8 @@ and password so remember your username!
 2. In order to view some classes I currently only have university classes available, so hover on my university course and click "Buy Now!". 
 3. You don't have to use real money. I am only using stripe in test mode for demonstration purposes. 
 4. Enter 4242 4242 4242 4242 as the fake card number and a future expiry date to buy the course.
-5. Navigate to your user profile in the top right of your screen. Click "My Courses" and you should see my university course.
-6. Enjoy!
+5. Navigate to your user profile in the top right of your screen. (If the user profile isn't visible navigate here: https://ailearningonline.herokuapp.com/me) Click "My Courses" and you should see my university course.
+7. Enjoy!
 
 # Developer notes
 Use yarn to install all dependencies.
