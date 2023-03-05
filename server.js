@@ -20,7 +20,7 @@ mongoose.connect(DB, {
     useUnifiedTopology: true
 }).then(() => console.log('DB Connection Successful!'));
 
-const port = 4000;
+const port = 8080;
 app.listen(process.env.PORT || port, () => {
     console.log(`Listening to server on port ${port}...`)
 })
